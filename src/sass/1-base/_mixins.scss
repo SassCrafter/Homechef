@@ -1,0 +1,43 @@
+@mixin absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@mixin absoluteCenter() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+
+%flex {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flexCenter {
+	@extend %flex;
+	justify-content: center;
+}
+
+@mixin flexColumn {
+	@extend %flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+@mixin flexColumnCenter {
+	@extend %flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+@mixin mq($size) {
+	@media screen and (min-width: $size) {
+		@content;
+	}
+}
