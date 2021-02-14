@@ -8,18 +8,19 @@ export class App {
 	static init() {
 		this.preloader = new Preloader('body');
 		this.preloader.show();
-		this.categoryList = new CategoryList('app-container');
+		this.categoryList = new CategoryList('categories');
 	}
 
 	static hidePreloader() {
 		this.preloader.hide();
 	}
+
+	static searchCategory(searchString) {
+		getMealsData(searchString);
+	}
 }
 
 App.init();
-
-getMealsData();
-getMealsCategories();
 
 // window.addEventListener('DOMContentLoaded', () => {
 // 	console.log('Loaded');

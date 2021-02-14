@@ -13,7 +13,6 @@ export default class extends Component {
 		const imgEl = this.createElement('img', null, [{name: 'src', value: strCategoryThumb},
 		 {name: 'alt', value: strCategory}]);
 		coverEl.appendChild(imgEl);
-		console.log(coverEl);
 		return coverEl;
 	}
 
@@ -32,7 +31,7 @@ export default class extends Component {
 	}
 
 	render() {
-		const rootEl = this.createRootEl('article', 'category');
+		const rootEl = this.createRootEl('article', 'category', [{name: 'data-category', value: this.categoryObj.strCategory}]);
 		rootEl.appendChild(this.renderCover());
 		rootEl.appendChild(this.renderText());
 		this.renderCover();

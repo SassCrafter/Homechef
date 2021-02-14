@@ -1,7 +1,10 @@
 const categories = ['breakfast', 'dessert', 'starter', 'side', 'seafood'];
+const SEARCH_STRING = 'https://www.themealdb.com/api/json/v1/1/';
 
-const setSearchString = () => {
-	console.log("setting");
+
+const setSearchString = (query) => {
+	const searchStr = SEARCH_STRING + query;
+	return searchStr;
 }
 
 
@@ -19,9 +22,9 @@ const getMealsCategories = async () => {
 	}
 }
 
-const getMealsData = async () => {
+const getMealsData = async (searchString) => {
 	try {
-		const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+		const response = await fetch(searchString);
 		const data = await response.json();
 		console.log(data);
 	} catch (error) {
@@ -29,4 +32,4 @@ const getMealsData = async () => {
 	}
 }
 
-export { getMealsData, getMealsCategories };
+export { getMealsData, getMealsCategories, setSearchString };
