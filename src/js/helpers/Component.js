@@ -3,6 +3,11 @@ export default class {
         this.hookId = hookId;
     }
 
+    createHintEl(text) {
+        const  hintEl = this.createElement('h2', 'hint');
+        hintEl.textContent = text;
+        return hintEl;
+    }
 
     createElement(tag, classNames, attrs) {
         const rootEl = document.createElement(tag);

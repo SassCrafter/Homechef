@@ -13,7 +13,7 @@ const getMealsCategories = async () => {
 		}
 		const data = await response.json();
 		const mealsCategories = data.categories.filter(category => categories.includes(category.strCategory.toLowerCase()));
-		return mealsCategories;
+		return mealsCategories.sort((a,b) => b.idCategory - a.idCategory);
 	} catch (error) {
 		console.log(error);
 	}
