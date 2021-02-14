@@ -1,0 +1,23 @@
+.app__menu {
+	width: 100%;
+	height: 4rem;
+	background-color: $main-color;
+	color: $text-white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+
+	.menu-wrapper {
+		height: 100%;
+		@include flexCenter;
+	}
+
+	.btn {
+		height: 100%;
+		padding: 0;
+		text-align: center;
+		flex: 1;
+		@include flexCenter;
+	}
+}

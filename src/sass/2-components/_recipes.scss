@@ -1,0 +1,47 @@
+.recipes {
+	@include absolute;
+	padding: 2rem;
+	max-width: 40rem;
+
+	&__list {
+		@include flexColumn;
+		//align-items: center;
+	}
+
+	.btn--categories {
+		position: fixed;
+		top: 10px;
+		left: 10px;
+		z-index: 10;
+	}
+}
+
+.recipe {
+	width: 80%;
+	position: relative;
+	margin-bottom: 2rem;
+
+	&__cover {
+		width: 100%;
+		height: 25rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__title {
+		padding: 1rem;
+		width: 100%;
+		background-color: rgba(0,0,0, .55);
+		color: $text-white;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+		font-size: 1.6rem;
+		box-shadow: 0 5px 15px rgba(0,0,0, .25);
+	}
+}

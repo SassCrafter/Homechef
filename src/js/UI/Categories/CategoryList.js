@@ -2,7 +2,7 @@ import { App } from '../../index';
 import Component from '../../helpers/Component';
 import Category from './Category';
 import { getMealsCategories, setSearchString } from '../../helpers/dataFunctions';
-import { slideLeft } from '../../animations/text';
+import { slideLeft } from '../../animations/animations';
 
 export default class extends Component {
 	constructor(hookId) {
@@ -24,11 +24,15 @@ export default class extends Component {
 	}
 
 	clickHandler(e) {
-		console.log(this);
 		const pickedCategory = e.target.closest('.category').dataset.category;
 		const searchString = setSearchString(`filter.php?c=${pickedCategory}`);
 		App.searchCategory(searchString);
-		slideLeft(this.rootEl, 400, window.innerWidth);
+		this.rootEl.parentElement.classList.add('slide-left');
+		//slideLeft('#categories', 400, window.innerWidth);
+	}
+
+	clear() {
+		this.clearRootEl(this.rootEl, '.category');
 	}
 
 	render() {

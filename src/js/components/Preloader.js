@@ -1,5 +1,5 @@
 import Component from '../helpers/Component';
-import { revealText, scaleRotate, scaleDownToTop } from '../animations/text';
+import { revealText, scaleRotate, scaleDownToTop } from '../animations/animations';
 
 export default class extends Component {
 	constructor(hookId) {

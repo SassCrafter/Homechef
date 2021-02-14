@@ -42,3 +42,13 @@ export function slideLeft(selector, duration, distance, delay = 0) {
 		easing: 'easeInQuad',
 	})
 }
+
+export function slideRight(selector, duration, distance, delay = 0) {
+	anime({
+		targets: selector,
+		translateX: distance,
+		duration: duration,
+		delay,
+		easing: 'easeInQuad',
+	})
+}

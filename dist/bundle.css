@@ -1,4 +1,4 @@
-.preloader__content, .preloader {
+.app__menu .btn, .app__menu .menu-wrapper, .recipes__list, .preloader__content, .preloader {
   display: flex;
   align-items: center;
 }
@@ -77,6 +77,22 @@ img {
   margin-bottom: 2rem;
 }
 
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #de122e;
+  color: #f4f4f4;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+.slide-left {
+  transform: translateX(-100vw);
+}
+
 .preloader {
   width: 100%;
   height: 100vh;
@@ -124,11 +140,17 @@ img {
 
 .categories {
   width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+  z-index: 100;
+  transition: transform 400ms ease-in-out;
 }
 
 .category {
   width: 100%;
   height: 10rem;
+  background-color: #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   display: flex;
 }
@@ -165,4 +187,71 @@ img {
   position: absolute;
   bottom: 0;
   right: 2rem;
+}
+
+.recipes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  max-width: 40rem;
+}
+.recipes__list {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.recipes .btn--categories {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.recipe {
+  width: 80%;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.recipe__cover {
+  width: 100%;
+  height: 25rem;
+}
+.recipe__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recipe__title {
+  padding: 1rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #f4f4f4;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 1.6rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.app__menu {
+  width: 100%;
+  height: 4rem;
+  background-color: #de122e;
+  color: #f4f4f4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+.app__menu .menu-wrapper {
+  height: 100%;
+  justify-content: center;
+}
+.app__menu .btn {
+  height: 100%;
+  padding: 0;
+  text-align: center;
+  flex: 1;
+  justify-content: center;
 }
