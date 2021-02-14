@@ -1,4 +1,5 @@
 import Preloader from './components/Preloader';
+import { getMealsData, getMealsCategories } from './helpers/dataFunctions';
 import '../sass/style.scss';
 
 
@@ -15,9 +16,12 @@ class App {
 
 App.init();
 
-// window.addEventListener('DOMContentLoaded', () => {
-// 	console.log('Loaded');
-// 	setTimeout(() => {
-// 		App.hidePreloader();
-// 	}, 2000);
-// });
+getMealsData();
+getMealsCategories();
+
+window.addEventListener('DOMContentLoaded', () => {
+	console.log('Loaded');
+	setTimeout(() => {
+		App.hidePreloader();
+	}, 2000);
+});

@@ -1,18 +1,26 @@
 import Component from '../helpers/Component';
-import { revealText, scaleRotate } from '../animations/text';
+import { revealText, scaleRotate, scaleDownToTop } from '../animations/text';
 
 export default class extends Component {
 	constructor(hookId) {
 		super(hookId);
+		this.duration = 600;
 		this.text = 'homechef';
-		this.render();
+		this.preloader = document.getElementById('main-preloader');
+		this.letters = this.preloader.querySelectorAll('.heading span');
+		this.animate();
+		//this.render();
 	}
 
 
 	animate() {
-		revealText('.preloader .heading span', 500);
-		scaleRotate('.preloader .icon', 1000);
+		revealText(this.letters, 500);
+		scaleRotate('.preloader .icon', 2000, 300);
 	}
+
+
+
+	// Rendering methods for creating preloader if needed
 
 	createIcon(imgPath, className) {
 		const icon = this.createElement('img', className, [{name: 'src', value: imgPath}]);
@@ -38,19 +46,23 @@ export default class extends Component {
 		this.heading = this.createHeading();
 		preloaderContent.appendChild(iconWrapper);
 		preloaderContent.appendChild(this.heading);
-		this.rootEl.appendChild(preloaderContent);
+		this.preloader.appendChild(preloaderContent);
 	}
 
 	show() {
-		this.rootEl.classList.remove('hidden');
+		this.preloader.classList.remove('hidden');
 	}
 
 	hide() {
-		this.rootEl.classList.add('hidden');
+		//this.preloader.classList.add('hidden');
+		scaleDownToTop(this.preloader, this.duration, window.innerWidth + 500);
+		setTimeout(() => {
+			this.preloader.classList.add('hidden');
+		}, this.duration)
 	}
 
 	render() {
-		this.rootEl = this.createRootEl('section', 'preloader hidden');
+		this.preloader = this.createRootEl('section', 'preloader hidden');
 		this.setupRootEL();
 		setTimeout(this.animate, 1000);
 	}

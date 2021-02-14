@@ -8,6 +8,7 @@
 	z-index: 10000;
 	@include flexCenter;
 	text-align: center;
+	transform-origin: center center;
 
 	&__content {
 		width: 90%;

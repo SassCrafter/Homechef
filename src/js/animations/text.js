@@ -12,11 +12,23 @@ export function revealText(selector, duration) {
 	});
 }
 
-export function scaleRotate(selector, duration) {
+export function scaleRotate(selector, duration, delay = 0) {
 	anime({
 		targets: selector,
 		scale: [0, 1],
 		rotate: 360,
 		duration: duration,
+		delay: delay
+	})
+}
+
+export function scaleDownToTop(selector, duration, distance, delay = 0) {
+	anime({
+		targets: selector,
+		scale: 3,
+		opacity: 0,
+		duration: duration,
+		delay: delay,
+		easing: 'easeInQuad',
 	})
 }
